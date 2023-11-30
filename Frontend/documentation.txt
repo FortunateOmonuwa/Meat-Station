@@ -1,0 +1,2 @@
+Task : Create header and footer that will be used through out the pages of the website using templates provided.
+Person(s) in-charge: Sanni Ruffai and Fortunate Omonuwa
