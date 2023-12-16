@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace Meat_Station.DataAccess.Interfaces
 {
-    public interface IUserService
+    public interface IRegisterService
     {
         Task<User> RegisterUser(UserRegisterDTO newUser);
         Task<string> VerifyUser(UserRegisterTokenVerificationDTO token);
         Task<string> Login(UserLoginDTO loginDetails);
+        Task<List<User>> GetAllUsers();
 
     }
 }

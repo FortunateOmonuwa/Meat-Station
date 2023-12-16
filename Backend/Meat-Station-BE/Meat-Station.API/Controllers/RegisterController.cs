@@ -7,11 +7,11 @@ namespace Meat_Station.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthController : ControllerBase
+    public class RegisterController : ControllerBase
     {
-        private readonly IUserService _userService;
+        private readonly IRegisterService _userService;
 
-        public AuthController(IUserService userService)
+        public RegisterController(IRegisterService userService)
         {
             _userService = userService;
         }
@@ -56,5 +56,9 @@ namespace Meat_Station.API.Controllers
                 return BadRequest($"{ex.Message}\n {ex.Source}\n {ex.InnerException}");
             }
         }
+
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll() => Ok(await _userService.GetAllUsers());
     }
 }

@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace Meat_Station.DataAccess.Repositories
 {
-    public class UserService : IUserService
+    public class RegisterService : IRegisterService
     {
         private readonly IAuthService _authService;
         private readonly DataContext _context;
@@ -24,7 +24,7 @@ namespace Meat_Station.DataAccess.Repositories
 
         
 
-        public UserService(IAuthService authService, DataContext context, IMapper mapper)
+        public RegisterService(IAuthService authService, DataContext context, IMapper mapper)
         {
             _authService = authService;
             _context = context;
@@ -135,5 +135,7 @@ namespace Meat_Station.DataAccess.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public async Task<List<User>> GetAllUsers() => await _context.Users.Include(r => r.Role).ToListAsync();
     }
 }
